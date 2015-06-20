@@ -127,7 +127,7 @@ html, body {
 }
 .DSA .keyborder.inner, .SA .keyborder.inner { margin-top: 3px; border-radius: 8px; }
 .DSA .keyfg, .SA .keyfg {
-	font-family: 'engravers_gothic_fsregular'; /* substitute for Gorton Modified */
+	font-family: 'engravers_gothic_fsregular', "Arial", "Helvetica", sans-serif; /* substitute for Gorton Modified */
 	border-radius: 8px; 
 	margin-top: 3px;
 	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0) 100%);
