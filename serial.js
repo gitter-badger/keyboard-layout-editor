@@ -18,7 +18,7 @@ var $serial = {};
 		}
 		return angular.toJson(obj);	
 	};
-	$serial.fromJsonL = function(json) { return jsonl.parse(json); };
+	$serial.fromJsonL = function(json) { return JSON.parse(json); };
 
 	// function to sort the key array
 	$serial.sortKeys = function(keys) {
