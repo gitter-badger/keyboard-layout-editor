@@ -26,10 +26,10 @@ Forked from keyboard-layout-editor by Ian Prest
 <script type="text/javascript" src="kb.js"></script>
 </head>
 <body ng-controller="kbCtrl"
-	 ng-mouseup="selectRelease($event)"
-	 ng-mousemove="selectMove($event)"
-	 ui-keydown="{'shift-191' : 'showHelp($event)',
-	 			  'ctrl-83' : 'save($event)' }">
+	ng-mouseup="selectRelease($event)"
+	ng-mousemove="selectMove($event)"
+	ui-keydown="{'shift-191' : 'showHelp($event)',
+							'ctrl-83' : 'save($event)' }">
 <div id="wrap">
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	<div class="navbar-header">
@@ -101,46 +101,46 @@ Forked from keyboard-layout-editor by Ian Prest
 		<button type="button" class="btn btn-success" ng-class="{disabled:!canSave()}" ng-click="save()"><i class="fa fa-save"></i> Save</button>
 	</div>
 	<div id="keyboard"
-		 tabindex="0"
-		 ng-style="{height: kbHeight + 'px', 'background-color': keyboard.meta.backcolor}"
-		 ui-keydown="{ left:'moveKeys(-.25,0,$event)',
-					 right:'moveKeys(.25,0,$event)',
-					 up:'moveKeys(0,-.25,$event)',
-					 down:'moveKeys(0,.25,$event)',
-					 'shift-left':'sizeKeys(-.25,0,$event)',
-					 'shift-right':'sizeKeys(.25,0,$event)',
-					 'shift-up':'sizeKeys(0,-.25,$event)',
-					 'shift-down':'sizeKeys(0,.25,$event)',
-					 'pageup':'rotateKeys(-15,$event)',
-					 'pagedown':'rotateKeys(15,$event)',
-					 'ctrl-left':'moveCenterKeys(-.25,0,$event)',
-					 'ctrl-right':'moveCenterKeys(.25,0,$event)',
-					 'ctrl-up':'moveCenterKeys(0,-.25,$event)',
-					 'ctrl-down':'moveCenterKeys(0,.25,$event)',
-					 delete:'deleteKeys()',
-					 insert:'addKey()',
-					 74: 'prevKey($event)',
-					 75: 'nextKey($event)',
-					 'shift-74': 'prevKey($event)',
-					 'shift-75': 'nextKey($event)',
-					 113: 'focusEditor()',
-					 esc: 'unselectAll()',
-					 'ctrl-65': 'selectAll($event)',
-					 'ctrl-67 ctrl-45': 'copy($event)',
-					 'ctrl-88 shift-46': 'cut($event)',
-					 'ctrl-86 shift-45': 'paste($event)',
-					 'ctrl-90' : 'undo()',
-					 'ctrl-shift-90' : 'redo()',
-					 'ctrl-89' : 'redo()' }"
-		 ng-mousedown="selectClick($event)">
+		tabindex="0"
+		ng-style="{height: kbHeight + 'px', 'background-color': keyboard.meta.backcolor}"
+		ui-keydown="{ left:'moveKeys(-.25,0,$event)',
+									right:'moveKeys(.25,0,$event)',
+									up:'moveKeys(0,-.25,$event)',
+									down:'moveKeys(0,.25,$event)',
+									'shift-left':'sizeKeys(-.25,0,$event)',
+									'shift-right':'sizeKeys(.25,0,$event)',
+									'shift-up':'sizeKeys(0,-.25,$event)',
+									'shift-down':'sizeKeys(0,.25,$event)',
+									'pageup':'rotateKeys(-15,$event)',
+									'pagedown':'rotateKeys(15,$event)',
+									'ctrl-left':'moveCenterKeys(-.25,0,$event)',
+									'ctrl-right':'moveCenterKeys(.25,0,$event)',
+									'ctrl-up':'moveCenterKeys(0,-.25,$event)',
+									'ctrl-down':'moveCenterKeys(0,.25,$event)',
+									delete:'deleteKeys()',
+									insert:'addKey()',
+									74: 'prevKey($event)',
+									75: 'nextKey($event)',
+									'shift-74': 'prevKey($event)',
+									'shift-75': 'nextKey($event)',
+									113: 'focusEditor()',
+									esc: 'unselectAll()',
+									'ctrl-65': 'selectAll($event)',
+									'ctrl-67 ctrl-45': 'copy($event)',
+									'ctrl-88 shift-46': 'cut($event)',
+									'ctrl-86 shift-45': 'paste($event)',
+									'ctrl-90' : 'undo()',
+									'ctrl-shift-90' : 'redo()',
+									'ctrl-89' : 'redo()' }"
+		ng-mousedown="selectClick($event)">
 
 		<div ng-repeat="key in keys()"
-			 class="key {{key.profile}}"
-			 style="{{rotationStyle(key)}}"
-			 ng-mouseover="hoveredKey=key"
-			 ng-mouseleave="hoveredKey=null"
-			 ng-class="{hover: hoveredKey==key, selected: selectedKeys.indexOf(key)>=0}"
-			 ng-bind-html="key.html">
+			class="key {{key.profile}}"
+			style="{{rotationStyle(key)}}"
+			ng-mouseover="hoveredKey=key"
+			ng-mouseleave="hoveredKey=null"
+			ng-class="{hover: hoveredKey==key, selected: selectedKeys.indexOf(key)>=0}"
+			ng-bind-html="key.html">
 		</div>
 
 		<div style="clear:both"></div>
@@ -216,7 +216,7 @@ Forked from keyboard-layout-editor by Ian Prest
 					<div class="controls hint--top hint--rounded" data-hint="Specify the primary and secondary sizes for the keycap legends. The primary size affects only the primary text legend, while the secondary size is applied to all other legends.">
 						<input id="textsizeeditor" size="6" type="number" min="1" max="9" ng-model="multi.fontheight" ng-change="updateMulti('fontheight')" ng-blur="validateMulti('fontheight')" ng-disabled="selectedKeys.length<1">
 						/
-						<input id="textsizeeditor" size="6" type="number" min="1" max="9" ng-model="multi.fontheight2" ng-change="updateMulti('fontheight2')" ng-blur="validateMulti('fontheight2')" ng-disabled="selectedKeys.length<1">
+						<input size="6" type="number" min="1" max="9" ng-model="multi.fontheight2" ng-change="updateMulti('fontheight2')" ng-blur="validateMulti('fontheight2')" ng-disabled="selectedKeys.length<1">
 					</div>
 				</div>
 				<div class="control-group">
@@ -281,7 +281,7 @@ Forked from keyboard-layout-editor by Ian Prest
 					<div class="controls hint--top hint--rounded" data-hint="Specify the angle (in degrees) by which to rotate the keycaps, and the x &amp; y coordinates of the center of rotation.">
 						<input id="angleeditor" size="3" type="number" min="-180" max="180" step="15" ng-model="multi.rotation_angle" ng-change="updateMulti('rotation_angle')" ng-blur="validateMulti('rotation_angle')" ng-disabled="selectedKeys.length<1">&#176;
 						<input id="rotxeditor" size="3" type="number" min="0" max="36" step=".25" ng-model="multi.rotation_x" ng-change="updateMulti('rotation_x')" ng-blur="validateMulti('rotation_x')" ng-disabled="selectedKeys.length<1">,
-						<input id="rotxeditor" size="3" type="number" min="0" max="36" step=".25" ng-model="multi.rotation_y" ng-change="updateMulti('rotation_y')" ng-blur="validateMulti('rotation_y')" ng-disabled="selectedKeys.length<1">
+						<input id="rotyeditor" size="3" type="number" min="0" max="36" step=".25" ng-model="multi.rotation_y" ng-change="updateMulti('rotation_y')" ng-blur="validateMulti('rotation_y')" ng-disabled="selectedKeys.length<1">
 					</div>
 				</div>
 				<div class="control-group">
@@ -301,13 +301,13 @@ Forked from keyboard-layout-editor by Ian Prest
 				{{palette.name}} <a ng-href="{{palette.href}}" data-hint="{{palette.description}}" class="hint--top hint--rounded" target="_blank">(more info)</a>
 				<ul id="swatches" ng-class="{disabled:selectedKeys.length<1}">
 					<li ng-repeat="color in palette.colors"
-						 ng-style="{'background-color':color.css}"
-						 ng-click="clickSwatch(color,$event)"
-						 class="swatch hint--top"
-						 ng-class="{'selected-bg': color.css === multi.color, 'selected-fg': color.css === multi.text}"
-						 data-hint="{{color.name}}">
-							 <div class="highlight fg"></div>
-							 <div class="highlight bg"></div>
+						ng-style="{'background-color':color.css}"
+						ng-click="clickSwatch(color,$event)"
+						class="swatch hint--top"
+						ng-class="{'selected-bg': color.css === multi.color, 'selected-fg': color.css === multi.text}"
+						data-hint="{{color.name}}">
+							<div class="highlight fg"></div>
+							<div class="highlight bg"></div>
 					</li>
 				</ul>
 				<div class="alert alert-warning alert-dismissable" style="margin-top:10px;"><a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
